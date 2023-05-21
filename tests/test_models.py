@@ -10,13 +10,18 @@ first_model.type = "Setting"
 second_model = BaseModel()
 
 
-class Test(unittest.TestCase):
-    def test_id(self):
+class TestBaseModel(unittest.TestCase):
+    def test_uuid(self):
         self.assertFalse(first_model.id == second_model.id)
 
-    def test_initial_datetime(self):
+    def test_datetime_attributes(self):
         self.assertEqual(first_model.created_at, first_model.updated_at)
 
     def test_updated_datetime(self):
         first_model.save()
         self.assertFalse(first_model.created_at == first_model.updated_at)
+
+    def test_str(self):
+        """Test correct output for str method"""
+        output = "[BaseModel] ({}) {}".format(first_model.id, first_model.__dict__)
+        self.assertEqual(output, str(first_model))
