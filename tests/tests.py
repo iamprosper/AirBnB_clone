@@ -11,7 +11,7 @@ second_model = BaseModel()
 
 
 class Test(unittest.TestCase):
-    def test_unique_id(self):
+    def test_id(self):
         self.assertFalse(first_model.id == second_model.id)
 
     def test_initial_datetime(self):
