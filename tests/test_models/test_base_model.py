@@ -25,3 +25,7 @@ class TestBaseModel(unittest.TestCase):
         """Test correct output for str method"""
         output = "[BaseModel] ({}) {}".format(first_model.id, first_model.__dict__)
         self.assertEqual(output, str(first_model))
+
+    def test_json_formating(self):
+        """Test to_dict method"""
+        self.assertTrue("__class__" in first_model.to_dict())
