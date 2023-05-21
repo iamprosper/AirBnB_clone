@@ -2,6 +2,7 @@
 """Base module module file"""
 from uuid import uuid4
 from datetime import datetime
+from . import storage
 
 
 class BaseModel:
@@ -17,6 +18,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            storage.new(self)
 
     def __str__(self):
         return "[{}] ({}) {}".format(
@@ -24,7 +26,8 @@ class BaseModel:
                 self.id, self.__dict__)
 
     def save(self):
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.now().isoformat()
+        storage.save()
 
     def to_dict(self):
         self.__dict__["__class__"] = self.__class__.__name__
