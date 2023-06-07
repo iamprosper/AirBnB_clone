@@ -32,7 +32,7 @@ button:hover{
     border-right: 1px solid #DDDDDD;
 }
 
-.locations, .amenities{
+.locations,.filters .amenities{
     height: 100%;
     width: 25%;
     display: flex;
@@ -84,11 +84,11 @@ button:hover{
     /* padding: 15px; */
 }
 
-.locations:hover .popover, .amenities:hover .popover{
+.locations:hover .popover, .filters .amenities:hover .popover{
     display: block;
 }
 
-.amenities .popover{
+.filters .amenities .popover{
     list-style: none;
     padding: 30px;
 }
